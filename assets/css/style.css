@@ -1,0 +1,35 @@
+body {
+    /* background-image: url("../images/circles-light/circles-light/circles-light.png"); */
+    background-image: url("../images/hypnotize/hypnotize/hypnotize.png");
+}
+.topic-button {
+    width: 15%;
+    height: 30px;
+    border-style: solid 1px;
+    padding: 2px;
+    margin: 2px;
+}
+
+.topic-button-color {
+    background-color: darkcyan;
+}
+
+.reactionButtons {
+    margin: 30px 60px;
+    height: 100%;
+    width: 600px;
+}
+
+.reactions {
+    padding-top: 60px;
+}
+.reaction-form {
+    margin: 30px 60px;
+}
+.addreaction {
+    width: 15%;
+    height: 30px;
+    border-style: solid 1px;
+    padding: 2px;
+    margin: 2px;
+}
