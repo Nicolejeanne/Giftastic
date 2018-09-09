@@ -8,10 +8,8 @@ body {
     border-style: solid 1px;
     padding: 2px;
     margin: 2px;
-}
-
-.topic-button-color {
-    background-color: darkcyan;
+    background-color: #FDBAA8;
+    font-weight: 700;
 }
 
 .reactionButtons {
@@ -21,10 +19,12 @@ body {
 }
 
 .reactions {
-    padding-top: 60px;
+    padding-top: 30px;
+    margin: 30px 60px;
 }
 .reaction-form {
     margin: 30px 60px;
+    text-align: left;
 }
 .addreaction {
     width: 15%;
@@ -32,4 +32,26 @@ body {
     border-style: solid 1px;
     padding: 2px;
     margin: 2px;
+    
+}
+.topic-input {
+    margin-bottom: 10px;
+    width: 15%;
+}
+.reactionLabel {
+    font-weight: 600;
+}
+.item {
+    width: 250px;
+    padding: 5px;
+    margin: 5px;
+    /* border: 2px; */
+    /* border-color: #FDBAA8; */
+    /* border-style: groove; */
+    display: inline-block;
+    overflow: auto;
+    
+}
+p {
+    font-weight: 600;
 }
