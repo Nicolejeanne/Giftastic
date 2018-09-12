@@ -19,8 +19,8 @@ $( document ).ready(function() {
     displayTopicButtons();
 
     // Function to take input from user on submit button click, add input to array and append new button
-    $(".addreaction").on("click", function() {
-        event.preventDefault();
+    $(".addreaction").on("click", function(e) {
+        e.preventDefault();
         // Take the value of the input from input field, trim white space and capitalize all letters
         let newReaction = $(".topic-input").val().trim().toUpperCase();
         // Add new input to end of array
@@ -33,7 +33,8 @@ $( document ).ready(function() {
     });
 
     // "on-click" event attached to the reaction buttons
-    $(".topic-button").on("click", function() {
+    $(document).on("click", ".topic-button", function(e) {
+        e.preventDefault();
         // this assign the data to the button that was clicked, "this" is the clicked button, then assigns that to a variable
         let reaction = $(this).attr("data-topic");
         console.log(reaction);
