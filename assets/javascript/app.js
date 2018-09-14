@@ -2,6 +2,8 @@ $( document ).ready(function() {
 
     // Array of reactions
     let topics = ["HAPPY", "ANGRY", "ANNOYED", "SAD", "SILLY"];
+    let results;
+    let reactionImage;
 
     // Function to loop through array and append .reactionButtons div with topics array buttons
     function displayTopicButtons() {
@@ -52,7 +54,7 @@ $( document ).ready(function() {
         .then(function(response) {
         
     // Store the array of JSON results in a variable
-        let results = response.data;
+        results = response.data;
         
     // Loop over responses
         for (let j = 0; j < results.length; j++) {
@@ -70,11 +72,13 @@ $( document ).ready(function() {
                 let p = $("<p>").text("Rating: " + rating);
 
                 // Creating an image tag
-                let reactionImage = $("<img>"); 
+                reactionImage = $("<img>"); 
 
                 // Give the image tag an src attr from the result item
                 reactionImage.attr("src", results[j].images.fixed_width_still.url);
-
+                reactionImage.attr("data-image", "true");
+                reactionImage.attr("data-animated", results[j].images.fixed_width_downsampled.url);
+                reactionImage.attr("data-still", results[j].images.fixed_width_still.url);
                 // Appending the paragraph and personImage we created to the "gifDiv" div we created
                 gifDiv.append(p);
                 gifDiv.append(reactionImage);
@@ -90,23 +94,18 @@ $( document ).ready(function() {
     });
 
     // Start and Stop animation
-        $("<img>").on("click", function(){
-            if (currentlyStill) {
+       $(document).on("click", "img", function(){
+           let currentlyStill = $(this).attr("data-image");
+            if (currentlyStill === "true") {
                 // $(this).src = results[j].images.fixed_width_still.url;
-                $(this).attr("src", results[j].images.fixed_width_still.url);
-                $(this).currentlyStill === true;
+                $(this).attr("src", $(this).attr("data-still"));
+                $(this).attr("data-image", "false");
             }
             else {
                 // $(this).src = results[j].images.fixed_width_downsampled.url;
-                $(this).attr("src", results[j].images.fixed_width_downsampled.url);
-                $(this).currentlyStill === false;
+                $(this).attr("src", $(this).attr("data-animated"));
+                $(this).attr("data-image", "true");
             }
         });
 
 });
-// "on-click" event to start then stop the animation of the gif
-    // $("<img>").on("click", function() {
-        // this will need to start then on second click stop the animation
-        // reactionImage.attr("src", results[j].images.fixed_width_downsampled.url);
-        // reactionImage.attr("src", results[j].images.fixed_width_still.url);
-    // });
