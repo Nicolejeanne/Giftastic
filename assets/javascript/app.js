@@ -96,15 +96,15 @@ $( document ).ready(function() {
     // Start and Stop animation
        $(document).on("click", "img", function(){
            let currentlyStill = $(this).attr("data-image");
-            if (currentlyStill === "true") {
+            if (currentlyStill === "false") {
                 // $(this).src = results[j].images.fixed_width_still.url;
                 $(this).attr("src", $(this).attr("data-still"));
-                $(this).attr("data-image", "false");
+                $(this).attr("data-image", "true");
             }
             else {
                 // $(this).src = results[j].images.fixed_width_downsampled.url;
                 $(this).attr("src", $(this).attr("data-animated"));
-                $(this).attr("data-image", "true");
+                $(this).attr("data-image", "false");
             }
         });
 
